@@ -6,6 +6,10 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use("/src", express.static(path.join(__dirname, "src")));
+
+app.use("/lib", express.static(path.join(__dirname, "node_modules")));
+
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
