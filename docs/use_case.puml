@@ -1,0 +1,19 @@
+@startuml PumpTheVolumeUp
+    actor Visitor
+
+    rectangle "Application"  {
+        usecase "Access to home" as UC1
+        usecase "Change page language" as UC2
+    }
+
+    package "Navigator" {
+        usecase "Translate the page" as UC3
+    }
+
+    note "Only if the navigator is in online mode" as note1
+
+    Visitor -> UC1
+    Visitor -> UC2
+    UC2 .. note1 : <<extend>>
+    note1 .> UC3
+@enduml
